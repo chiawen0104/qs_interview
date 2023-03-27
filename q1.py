@@ -4,7 +4,7 @@ def priority(op): # Priority of Operator
     return 1 if op in "+-" else 2 if op in "*/%" else 0
 
 
-def str_to_list(infix): # Infix String -> Infix List
+def to_list(infix): # Infix String -> Infix List
     infix_list = []
     tmp_value = 0
 
@@ -30,7 +30,7 @@ def str_to_list(infix): # Infix String -> Infix List
     
 
 
-def toPostfix(infixlist): # Infix List -> Postfix List
+def to_postfix(infixlist): # Infix List -> Postfix List
     stack = []
     postlist = []
 
@@ -62,7 +62,7 @@ def toPostfix(infixlist): # Infix List -> Postfix List
 
 
 
-def cal_postfix (pfix):
+def calculate_postfix (pfix):
     stack = []
 
     for i in range(len(pfix)):
@@ -92,13 +92,10 @@ def cal_postfix (pfix):
 
 if __name__ == '__main__':
     global number
-    number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    number = '01234567890'
 
     while True:
         infix_str = input("請輸入非負整數之數學運算式，結束請輸入0：")
         if infix_str == '0': break
         infix_str = infix_str.replace(' ', '').replace('=', '')
-        print(f'= {cal_postfix(toPostfix(str_to_list(infix_str)))}')
-
-
-    
+        print(f'= {calculate_postfix(to_postfix(to_list(infix_str)))}')
