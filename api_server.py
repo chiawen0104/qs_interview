@@ -9,11 +9,19 @@ app = Flask(__name__)
 
 def generate_image():
     # 取得寬度和高度參數
-    width = int(request.args.get('width'))
-    height = int(request.args.get('height'))
+    try:
+        width = int(request.args.get('width'))
+        height = int(request.args.get('height'))
+    except:
+        # https://stackoverflow.com/questions/57664997/how-to-return-400-bad-request-on-flask
+        return Response ("Invalid Parameters.", status = 400)
+
     # 若輸入參數小於等於0，回傳客戶端錯誤
-    if width <= 0 or height <= 0:
-        return Response ("Wrong Parameter!", status = 400)
+    if (width < 0 or height < 0):
+        return Response ("Invalid Parameters.", status = 400)
+    elif (width == 0 or height ==  0):
+        return Response ("Zero Parameters.", status = 400)
+    
     # 產生隨機顏色的 numpy 陣列
     img_array = np.random.rand(height, width, 3) * 255
     # 將 numpy 陣列轉換成 PIL 的 Image 物件
