@@ -26,4 +26,5 @@ Then run the API testing on other window:
 ```
 python3 api_test.py
 ```
-Unit testing will test the result with valid and invlid parameters by requests method. E2E testing will test API through selenium packages.
+Unit testing will test the result with valid and invlid parameters by requests method. E2E testing will test API through selenium packages.  
+Note: please replace 'chromedriver' by your browser's version.
