@@ -2,7 +2,7 @@
 There are three programming questions of QSearch's interview.
 
 ### Q1: Simple Math Parser
-Simple math calculator for nonzero integers.
+Simple math calculator for non-negative integers.
 ```
 python3 math_parser.py
 ```
@@ -27,4 +27,4 @@ Then run the API testing on other window:
 python3 api_test.py
 ```
 Unit testing will test the result with valid and invlid parameters by requests method. E2E testing will test API through selenium packages.  
-Note: please replace 'chromedriver' by your browser's version.
+Note: please use 'chromedriver' of your browser's version.
